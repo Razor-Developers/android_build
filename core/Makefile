@@ -1897,6 +1897,9 @@ razor: otapackage
 	@echo -e ${CL_RST}""${CL_RST}
 	@echo -e ${CL_GRN}"                    Build completed!! Flash that ROM and ENJOY!!                    "${CL_GRN}
 	@echo -e ${CL_RST}""${CL_RST}
+	@echo -e ${CL_YLW}"****************"${CL_YLW}
+	@echo -e ${CL_YLW}"ROM Size : `ls -lh $(RAZOR_TARGET_PACKAGE) | cut -d ' ' -f 5`"
+	@echo -e ${CL_YLW}"****************"${CL_YLW}
 	@echo -e ${CL_RST}""${CL_RST}
 	@echo -e ${CL_YLW}"Package Complete: $(RAZOR_TARGET_PACKAGE)"${CL_YLW}
 
