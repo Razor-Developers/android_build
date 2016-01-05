@@ -625,6 +625,19 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     script.Unmount("/system")
 
   system_progress = 0.75
+  
+  script.Print("######################################")
+  script.Print("#   (                 )    )   (     #")
+  script.Print("#   )\ )    (      ( /( ( /(   )\ )  #")
+  script.Print("#  (()/(    )\     )\()))\()) (()/(  #")
+  script.Print("#   /(_))((((_)(  ((_)\((_)\   /(_)) #")
+  script.Print("#  (_))   )\ _ )\  _((_) ((_) (_))   #")
+  script.Print("#  | _ \  (_)_\(_)|_  / / _ \ | _ \  #")
+  script.Print("#  |   /   / _ \   / / | (_) ||   /  #")
+  script.Print("#  |_|_\  /_/ \_\ /___| \___/ |_|_\  #")
+  script.Print("#                                    #")
+  script.Print("#            Android 6.0.1           #")
+  script.Print("######################################")
 
   if OPTIONS.wipe_user_data:
     system_progress -= 0.1
