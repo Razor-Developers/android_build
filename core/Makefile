@@ -1883,7 +1883,22 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 razor: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(RAZOR_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(RAZOR_TARGET_PACKAGE) > $(RAZOR_TARGET_PACKAGE).md5sum
-	@echo -e ${CL_CYN}"Package Complete: $(RAZOR_TARGET_PACKAGE)"${CL_RST}
+	@echo -e ${CL_RST}""${CL_RST}
+	@echo -e ${CL_GRN}" ▄▄▄█████▓▓█████ ▄▄▄       ███▄ ▄███▓ ██▀███   ▄▄▄      ▒███████▒ ▒█████   ██▀███   "${CL_GRN}
+	@echo -e ${CL_GRN}"▓  ██▒ ▓▒▓█   ▀▒████▄    ▓██▒▀█▀ ██▒▓██ ▒ ██▒▒████▄    ▒ ▒ ▒ ▄▀░▒██▒  ██▒▓██ ▒ ██▒  "${CL_GRN}
+	@echo -e ${CL_GRN}"▒ ▓██░ ▒░▒███  ▒██  ▀█▄  ▓██    ▓██░▓██ ░▄█ ▒▒██  ▀█▄  ░ ▒ ▄▀▒░ ▒██░  ██▒▓██ ░▄█ ▒  "${CL_GRN}
+	@echo -e ${CL_GRN}"░ ▓██▓ ░ ▒▓█  ▄░██▄▄▄▄██ ▒██    ▒██ ▒██▀▀█▄  ░██▄▄▄▄██   ▄▀▒   ░▒██   ██░▒██▀▀█▄    "${CL_GRN}
+	@echo -e ${CL_GRN}"  ▒██▒ ░ ░▒████▒▓█   ▓██▒▒██▒   ░██▒░██▓ ▒██▒ ▓█   ▓██▒▒███████▒░ ████▓▒░░██▓ ▒██▒  "${CL_GRN}
+	@echo -e ${CL_GRN}"  ▒ ░░   ░░ ▒░ ░▒▒   ▓▒█░░ ▒░   ░  ░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░▒▒ ▓░▒░▒░ ▒░▒░▒░ ░ ▒▓ ░▒▓░  "${CL_GRN}
+	@echo -e ${CL_GRN}"    ░     ░ ░  ░ ▒   ▒▒ ░░  ░      ░  ░▒ ░ ▒░  ▒   ▒▒ ░░░▒ ▒ ░ ▒  ░ ▒ ▒░   ░▒ ░ ▒░  "${CL_GRN}
+	@echo -e ${CL_GRN}"  ░         ░    ░   ▒   ░      ░     ░░   ░   ░   ▒   ░ ░ ░ ░ ░░ ░ ░ ▒    ░░   ░   "${CL_GRN}
+	@echo -e ${CL_GRN}"            ░  ░     ░  ░       ░      ░           ░  ░  ░ ░        ░ ░     ░       "${CL_GRN}
+	@echo -e ${CL_GRN}"                                                       ░                            "${CL_GRN}
+	@echo -e ${CL_RST}""${CL_RST}
+	@echo -e ${CL_GRN}"                    Build completed!! Flash that ROM and ENJOY!!                    "${CL_GRN}
+	@echo -e ${CL_RST}""${CL_RST}
+	@echo -e ${CL_RST}""${CL_RST}
+	@echo -e ${CL_YLW}"Package Complete: $(RAZOR_TARGET_PACKAGE)"${CL_YLW}
 
 bootzip: bootimage
 	$(BOOT_ZIP_FROM_IMAGE_SCRIPT) \
