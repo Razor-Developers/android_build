@@ -1878,9 +1878,9 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 
 RAZOR_TARGET_PACKAGE := $(PRODUCT_OUT)/$(RAZOR_MOD_VERSION).zip
 
-.PHONY: otapackage bacon bootzip
+.PHONY: otapackage razor bootzip
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
-bacon: otapackage
+razor: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(RAZOR_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(RAZOR_TARGET_PACKAGE) > $(RAZOR_TARGET_PACKAGE).md5sum
 	@echo -e ${CL_CYN}"Package Complete: $(RAZOR_TARGET_PACKAGE)"${CL_RST}
