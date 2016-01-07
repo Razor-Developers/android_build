@@ -20,7 +20,6 @@ export HMM_DESCRIPTIVE=(
 "sepgrep: Greps on all local sepolicy files."
 "sgrep:   Greps on all local source files."
 "godir:   Go to the directory containing a file."
-"razorremote: Add a git remote for matching RAZOR repository"
 "mka:      Builds using SCHED_BATCH on all processors"
 "mkap:     Builds the module(s) using mka and pushes them to the device."
 "cmka:     Cleans and builds using mka."
@@ -81,7 +80,7 @@ function check_product()
 
     if (echo -n $1 | grep -q -e "^razor_") ; then
        RAZOR_BUILD=$(echo -n $1 | sed -e 's/^razor_//g')
-       export RAZOR_NUMBER=$((date +%s%N ; echo $RAZOR_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10)
+       export BUILD_NUMBER=$((date +%s%N ; echo $RAZOR_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10)
     else
        RAZOR_BUILD=
     fi
@@ -569,7 +568,7 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the SLIM model name
+            # This is probably just the RAZOR model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
@@ -776,7 +775,7 @@ function eat()
             done
             echo "Device Found.."
         fi
-    if (adb shell getprop cat /system/build.prop | grep -q "ro.razor.device=$RAZOR_BUILD");
+    if (adb shell getprop ro.razor.device | grep -q "$RAZOR_BUILD");
     then
         # if adbd isn't root we can't write to /cache/recovery/
         adb root
@@ -1822,7 +1821,7 @@ function installboot()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 > /dev/null
     adb wait-for-online remount
-    if (adb shell cat /system/build.prop | grep -q "ro.razor.device=$RAZOR_BUILD");
+    if (adb shell getprop ro.razor.device | grep -q "$RAZOR_BUILD");
     then
         adb push $OUT/boot.img /cache/
         for i in $OUT/system/lib/modules/*;
@@ -1867,7 +1866,7 @@ function installrecovery()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 > /dev/null
     adb wait-for-online remount
-    if (adb shell cat /system/build.prop | grep -q "ro.razor.device=$RAZOR_BUILD");
+    if (adb shell getprop ro.razor.device | grep -q "$RAZOR_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
@@ -1893,7 +1892,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell cat /system/build.prop | grep -q "ro.razor.device=$RAZOR_BUILD");
+    if (adb shell getprop ro.razor.device | grep -q "$RAZOR_BUILD");
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices | egrep '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+[^0-9]+' \
@@ -2121,7 +2120,7 @@ unset f
 
 # Add completions
 check_bash_version && {
-    dirs="sdk/bash_completion vendor/slim/bash_completion"
+    dirs="sdk/bash_completion vendor/razor/bash_completion"
     for dir in $dirs; do
     if [ -d ${dir} ]; then
         for f in `/bin/ls ${dir}/[a-z]*.bash 2> /dev/null`; do
