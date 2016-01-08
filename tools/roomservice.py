@@ -43,7 +43,7 @@ DEBUG = False
 default_manifest = ".repo/manifest.xml"
 
 custom_local_manifest = ".repo/local_manifests/roomservice.xml"
-custom_default_revision = "mm6.0"
+custom_default_revision = "mm-6.0"
 custom_dependencies = "razor.dependencies"
 org_manifest = "TEAM-RAZOR-DEVICES"  # leave empty if org is provided in manifest
 org_display = "TEAM-RAZOR-DEVICES"  # needed for displaying
@@ -322,7 +322,7 @@ def main():
         if repo_path:
             fetch_dependencies(repo_path)
         else:
-            print("Trying dependencies-only mode on a"
+            print("Trying dependencies-only mode on a "
                   "non-existing device tree?")
         sys.exit()
 
