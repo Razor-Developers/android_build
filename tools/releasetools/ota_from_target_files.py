@@ -620,18 +620,16 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   system_progress = 0.75
   
-  script.Print("######################################")
-  script.Print("#   (                 )    )   (     #")
-  script.Print("#   )\ )    (      ( /( ( /(   )\ )  #")
-  script.Print("#  (()/(    )\     )\()))\()) (()/(  #")
-  script.Print("#   /(_))((((_)(  ((_)\((_)\   /(_)) #")
-  script.Print("#  (_))   )\ _ )\  _((_) ((_) (_))   #")
-  script.Print("#  | _ \  (_)_\(_)|_  / / _ \ | _ \  #")
-  script.Print("#  |   /   / _ \   / / | (_) ||   /  #")
-  script.Print("#  |_|_\  /_/ \_\ /___| \___/ |_|_\  #")
-  script.Print("#                                    #")
-  script.Print("#            Android 6.0.1           #")
-  script.Print("######################################")
+  script.Print("****************************************************")
+  script.Print("*    ___      ____             ___  ____  __  ___  *")
+  script.Print("*   / _ \___ /_  / ___  ____  / _ \/ __ \/  |/  /  *")
+  script.Print("*  / , _/ _ `// /_/ _ \/ __/ / , _/ /_/ / /|_/ /   *")
+  script.Print("* /_/|_|\_,_//___/\___/_/   /_/|_|\____/_/  /_/    *")
+  script.Print("*                                                  *")
+  script.Print("*             || Android 6.0.1 ||                  *")
+  script.Print("*                                                  *")
+  script.Print("*             ||  MARSHMALLOW  ||                  *")
+  script.Print("****************************************************")
 
   if OPTIONS.wipe_user_data:
     system_progress -= 0.1
